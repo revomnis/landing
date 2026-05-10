@@ -213,6 +213,22 @@ a {
   min-width: 0;
 }
 
+/* Hero copy visible on first paint (no flash while JS adds .is-visible) */
+.hero .animate-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.hero__eyebrow {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
 .hero__title {
   margin: 0;
   font-size: clamp(2.125rem, 5.2vw, 3.125rem);
@@ -234,11 +250,47 @@ a {
   margin-top: var(--space-lg);
 }
 
+.hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.hero__cta-secondary {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.hero__cta-secondary:hover {
+  color: var(--accent-hover);
+  text-decoration-color: color-mix(in srgb, var(--accent-hover) 45%, transparent);
+}
+
+.hero__cta-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .hero__trust {
   margin: var(--space-sm) 0 0;
   font-size: 0.875rem;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   letter-spacing: -0.01em;
+  max-width: 38rem;
+}
+
+.hero__trust--dim {
+  margin-top: var(--space-xs);
+  color: var(--text-subtle);
+  font-size: 0.8125rem;
+  line-height: 1.45;
 }
 
 .hero__visual {

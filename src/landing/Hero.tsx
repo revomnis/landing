@@ -12,27 +12,37 @@ export function Hero() {
     <section className="hero section" aria-labelledby="hero-heading">
       <div className="container hero__layout">
         <div className="hero__copy">
-          <h1 id="hero-heading" className="hero__title animate-in">
-            Revomnis builds and runs your outbound system so your calendar fills with qualified B2B
-            meetings.
+          <p className="hero__eyebrow animate-in">Managed outbound for B2B teams</p>
+          <h1 id="hero-heading" className="hero__title animate-in animate-in--delay-1">
+            Qualified meetings on your calendar—without running outbound yourself.
           </h1>
-          <p className="hero__sub animate-in animate-in--delay-1">
-            You don&apos;t manage SDRs or campaigns, you just show up to the right conversations.
+          <p className="hero__sub animate-in animate-in--delay-2">
+            Revomnis builds and runs your system from ICP through booked calls. You don&apos;t
+            manage SDRs or campaigns—you show up to conversations that matter.
           </p>
-          <div className="hero__cta animate-in animate-in--delay-2">
-            <Button href={CTA_HREF} variant="primary" size="lg">
-              Book Free Consultation
-            </Button>
-            <p className="hero__trust">No SDRs. No fluff. Just qualified meetings.</p>
+          <div className="hero__cta animate-in animate-in--delay-3">
+            <div className="hero__cta-row">
+              <Button href={CTA_HREF} variant="primary" size="lg">
+                Book Free Consultation
+              </Button>
+              <a className="hero__cta-secondary" href="#process">
+                See how it works
+              </a>
+            </div>
+            <p className="hero__trust">We reply within one business day when you reach out.</p>
+            <p className="hero__trust hero__trust--dim">
+              No SDR bench, no lead-chasing theater—just a managed system aimed at qualified
+              meetings.
+            </p>
           </div>
         </div>
         <div className="hero__visual animate-in animate-in--delay-1" aria-hidden="true">
           <div className="hero-chart">
-            <p className="hero-chart__label">Qualify &rarr; pipeline &rarr; revenue</p>
+            <p className="hero-chart__label">ICP &rarr; pipeline &rarr; meetings</p>
             <div
               className="hero-funnel"
               role="img"
-              aria-label="Leads funnel into a pipeline slot; revenue bars rise beside it."
+              aria-label="Leads funnel through pipeline toward meetings; revenue bars rise beside it."
             >
               <div className="hero-funnel__leads-block">
                 <span className="hero-funnel__eyebrow">Leads</span>
