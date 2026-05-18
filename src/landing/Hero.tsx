@@ -1,11 +1,14 @@
 import { Button } from "../components/Button";
+import { StatusChip } from "../components/StatusChip";
 import { CTA_HREF } from "../lib/constants";
 
-const LEAD_COUNT = 5;
-const LEAD_TX = [26, 13, 0, -13, -26] as const;
-const BAR_HEIGHTS = [0.38, 0.52, 0.68, 0.84, 1] as const;
-
-const STAGE_LABELS = ["ICP", "Lists", "Outreach", "Pipeline", "Meetings"] as const;
+const SNAPSHOT_ITEMS = [
+  { label: "Audience", value: "Founder-led B2B services" },
+  { label: "Infrastructure", value: "4 domains / 16 inboxes" },
+  { label: "Channels", value: "Email + LinkedIn" },
+  { label: "Replies", value: "18 classified" },
+  { label: "Meetings", value: "4 booked" },
+] as const;
 
 export function Hero() {
   return (
@@ -14,116 +17,135 @@ export function Hero() {
         <div className="hero__copy">
           <p className="hero__eyebrow animate-in">Managed outbound for B2B teams</p>
           <h1 id="hero-heading" className="hero__title animate-in animate-in--delay-1">
-            Qualified meetings on your calendar—without running outbound yourself.
+            <span className="hero__title-main">Qualified</span>
+            <span className="hero__title-main">B2B meetings</span>
+            <span className="hero__title-support">
+              from managed{" "}
+              <span className="hero__title-accent">email + LinkedIn</span>{" "}
+              outbound.
+            </span>
           </h1>
           <p className="hero__sub animate-in animate-in--delay-2">
-            Revomnis builds and runs your system from ICP through booked calls. You don&apos;t
-            manage SDRs or campaigns—you show up to conversations that matter.
+            Revomnis is a boutique premium outbound agency that builds and runs coordinated
+            email + LinkedIn systems for B2B companies.
+          </p>
+          <p className="hero__sub animate-in animate-in--delay-2">
+            We define the audience, manage the infrastructure, run outreach, handle replies,
+            and book qualified meetings with portal visibility into what is moving and being
+            learned.
           </p>
           <div className="hero__cta animate-in animate-in--delay-3">
             <div className="hero__cta-row">
               <Button href={CTA_HREF} variant="primary" size="lg">
-                Book Free Consultation
+                Book a Free Consultation
               </Button>
               <a className="hero__cta-secondary" href="#process">
-                See how it works
+                See How It Works
               </a>
             </div>
-            <p className="hero__trust">We reply within one business day when you reach out.</p>
-            <p className="hero__trust hero__trust--dim">
-              No SDR bench, no lead-chasing theater—just a managed system aimed at qualified
-              meetings.
-            </p>
+            <p className="hero__trust">We review your market before recommending scope.</p>
           </div>
         </div>
-        <div className="hero__visual animate-in animate-in--delay-1" aria-hidden="true">
-          <div className="hero-chart">
-            <p className="hero-chart__label">ICP &rarr; pipeline &rarr; meetings</p>
-            <div
-              className="hero-funnel"
-              role="img"
-              aria-label="Leads funnel through pipeline toward meetings; revenue bars rise beside it."
-            >
-              <div className="hero-funnel__leads-block">
-                <span className="hero-funnel__eyebrow">Leads</span>
-                <div className="hero-funnel__chute">
-                  <svg
-                    className="hero-funnel__guides"
-                    viewBox="0 0 200 56"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M 8 4 L 100 52"
-                      stroke="#0a0a0a"
-                      strokeOpacity="0.14"
-                      strokeWidth="1.25"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M 192 4 L 100 52"
-                      stroke="#0a0a0a"
-                      strokeOpacity="0.14"
-                      strokeWidth="1.25"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="hero-funnel__dots">
-                    {Array.from({ length: LEAD_COUNT }, (_, i) => (
-                      <span
-                        key={i}
-                        className="hero-funnel__dot"
-                        style={
-                          {
-                            "--tx": `${LEAD_TX[i]}px`,
-                            "--d": `${i * 0.34}s`,
-                          } as React.CSSProperties
-                        }
-                      />
-                    ))}
+
+        <div className="hero__visual animate-in animate-in--delay-1">
+          <div className="portal-mock" aria-label="Revomnis Portal visibility console">
+            <div className="portal-mock__topbar" aria-hidden="true">
+              <span className="portal-mock__dot portal-mock__dot--red" />
+              <span className="portal-mock__dot portal-mock__dot--yellow" />
+              <span className="portal-mock__dot portal-mock__dot--green" />
+            </div>
+
+            <div className="portal-mock__header">
+              <span className="portal-mock__title">Revomnis Portal</span>
+              <span className="portal-mock__header-right">
+                <span className="portal-mock__live-dot" aria-hidden="true" />
+                <span className="portal-mock__badge">Live visibility</span>
+              </span>
+            </div>
+
+            <div className="portal-mock__snapshot">
+              {SNAPSHOT_ITEMS.map((item) => (
+                <div key={item.label} className="portal-mock__snap-item">
+                  <span className="portal-mock__snap-label">{item.label}</span>
+                  <span className="portal-mock__snap-value">{item.value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="portal-mock__body">
+              <div className="portal-mock__columns">
+                <div className="portal-mock__panel">
+                  <div className="portal-mock__panel-header">
+                    <span className="portal-mock__panel-title">Active campaign motion</span>
+                    <StatusChip label="Active" color="blue" />
+                  </div>
+                  <div className="portal-mock__row">
+                    <span className="portal-mock__row-label">ICP segment</span>
+                    <span className="portal-mock__row-value">Founder-led B2B services</span>
+                  </div>
+                  <div className="portal-mock__row">
+                    <span className="portal-mock__row-label">
+                      <span className="portal-mock__row-dot portal-mock__row-dot--blue" aria-hidden="true" />
+                      Email sequence
+                    </span>
+                    <span className="portal-mock__row-value">Active</span>
+                  </div>
+                  <div className="portal-mock__row">
+                    <span className="portal-mock__row-label">
+                      <span className="portal-mock__row-dot portal-mock__row-dot--blue" aria-hidden="true" />
+                      LinkedIn touchpoints
+                    </span>
+                    <span className="portal-mock__row-value">Active</span>
+                  </div>
+                  <div className="portal-mock__row">
+                    <span className="portal-mock__row-label">
+                      <span className="portal-mock__row-dot portal-mock__row-dot--green" aria-hidden="true" />
+                      Reply handling
+                    </span>
+                    <span className="portal-mock__row-value">Monitored</span>
+                  </div>
+                </div>
+
+                <div className="portal-mock__panel">
+                  <div className="portal-mock__panel-header">
+                    <span className="portal-mock__panel-title">Qualified movement</span>
+                  </div>
+                  <div className="portal-mock__stat-grid">
+                    <div className="portal-mock__stat">
+                      <span className="portal-mock__stat-label">Replies classified</span>
+                      <span className="portal-mock__stat-num">18</span>
+                    </div>
+                    <div className="portal-mock__stat">
+                      <span className="portal-mock__stat-label">Qualified conversations</span>
+                      <span className="portal-mock__stat-num">7</span>
+                    </div>
+                    <div className="portal-mock__stat">
+                      <span className="portal-mock__stat-label">Meetings booked</span>
+                      <span className="portal-mock__stat-num">4</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="hero-funnel__pipeline-wrap">
-                <div className="hero-funnel__pipeline">Pipeline</div>
-              </div>
-
-              <div className="hero-funnel__revenue-block">
-                <span className="hero-funnel__eyebrow">Revenue</span>
-                <div className="hero-funnel__bars">
-                  {BAR_HEIGHTS.map((fh, i) => (
-                    <span key={i} className="hero-funnel__bar">
-                      <span
-                        className="hero-funnel__bar-inner"
-                        style={
-                          {
-                            "--fh": String(fh),
-                            "--bi": String(i),
-                          } as React.CSSProperties
-                        }
-                      />
-                    </span>
-                  ))}
+              <div className="portal-mock__interp">
+                <div className="portal-mock__interp-header">
+                  <span className="portal-mock__interp-title">Latest interpretation</span>
+                  <StatusChip label="Insight" color="blue" />
+                </div>
+                <div className="portal-mock__insight-row">
+                  <span className="portal-mock__insight-label">Positive reply pattern</span>
+                  <p className="portal-mock__insight-text">
+                    42% of positive replies came after the second email touch.
+                  </p>
+                </div>
+                <div className="portal-mock__insight-row">
+                  <span className="portal-mock__insight-label">Audience signal</span>
+                  <p className="portal-mock__insight-text">
+                    Strongest replies mention SDR hiring cost and internal outbound complexity.
+                  </p>
                 </div>
               </div>
             </div>
-
-            <div className="hero-stages">
-              {STAGE_LABELS.map((label, i) => (
-                <span
-                  key={label}
-                  className="hero-stages__item"
-                  style={{ "--si": String(i) } as React.CSSProperties}
-                >
-                  {label}
-                </span>
-              ))}
-            </div>
-
-            <p className="hero-chart__hint hero-funnel__hint">
-              Narrow the field; compound the outcome.
-            </p>
           </div>
         </div>
       </div>
