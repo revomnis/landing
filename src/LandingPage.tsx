@@ -6,7 +6,7 @@ import { ValueCard } from "./components/ValueCard";
 import { CTA_HREF } from "./lib/constants";
 import { SITE_MEDIA } from "./lib/siteMedia";
 import { DELIVERABLES } from "./landing/deliverablesData";
-import { DIFFERENTIATION_ITEMS } from "./landing/differentiationData";
+import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
 import { FAQ_ITEMS } from "./landing/faqData";
 import { Hero } from "./landing/Hero";
 import { PROCESS_STEPS } from "./landing/processData";
@@ -72,26 +72,57 @@ export function LandingPage() {
       <main>
         <Hero />
 
-        <section className="diff section section--tight" aria-labelledby="diff-heading">
+        <section className="diff section" aria-labelledby="diff-heading">
           <div className="container">
             <h2 id="diff-heading" className="section__title animate-in">
-              Not another lead gen agency
+              Not another lead-gen agency.
             </h2>
-            <p className="diff__lede animate-in animate-in--delay-1">
-              Most outbound vendors sell fragments. Revomnis delivers a managed system.
-            </p>
-            <div className="diff__grid animate-in animate-in--delay-2">
-              <div className="diff__header">
-                <span className="diff__col-label">What others sell</span>
-                <span className="diff__col-label">What Revomnis delivers</span>
-              </div>
-              {DIFFERENTIATION_ITEMS.map((item) => (
-                <div key={item.others} className="diff__row">
-                  <span className="diff__others">{item.others}</span>
-                  <span className="diff__ours">{item.revomnis}</span>
-                </div>
-              ))}
+            <div className="diff__lede animate-in animate-in--delay-1">
+              <p className="diff__lede-line">
+                Most outbound vendors sell fragments: lists, sequences, SDR activity, or reports.
+              </p>
+              <p className="diff__lede-line">
+                Revomnis operates the full outbound engine, from audience definition to
+                qualified meetings and visible campaign insight.
+              </p>
             </div>
+
+            <div className="diff__table-wrap animate-in animate-in--delay-2">
+              <table className="diff__table">
+                <thead>
+                  <tr>
+                    <th className="diff__corner" scope="col">
+                      <span className="visually-hidden">Comparison area</span>
+                    </th>
+                    {DIFF_COLUMNS.map((col) => (
+                      <th
+                        key={col.key}
+                        scope="col"
+                        className={`diff__col-header${col.key === "revomnis" ? " diff__col-header--rev" : ""}`}
+                      >
+                        <span className="diff__col-name">{col.label}</span>
+                        <span className="diff__col-desc">{col.description}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {DIFF_ROWS.map((row) => (
+                    <tr key={row.label} className="diff__row">
+                      <th scope="row" className="diff__row-label">{row.label}</th>
+                      <td className="diff__cell">{row.diy}</td>
+                      <td className="diff__cell">{row.generic}</td>
+                      <td className="diff__cell diff__cell--rev">{row.revomnis}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="diff__closing animate-in animate-in--delay-3">
+              Revomnis is built for teams that want outbound working without assembling
+              the machinery themselves.
+            </p>
           </div>
         </section>
 
