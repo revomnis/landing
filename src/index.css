@@ -1,32 +1,72 @@
 /*
- * Revomnis — light, editorial layout
- * Inspired by Revolut-style fintech marketing: flat surfaces, black type,
- * hairline rules, minimal chrome (vs. generic “AI SaaS” dark + glow).
- * B2B standard: one primary action, high contrast body text (WCAG), mobile-first.
+ * Revomnis - premium managed outbound homepage
+ * Clean, structured, system-led. White + selective dark sections.
+ * Black primary buttons, blue accent for chips/states/highlights.
  */
 
 :root {
-  --bg: #ffffff;
-  --bg-muted: #f5f5f4;
-  --bg-band: #fafafa;
-  --surface: #ffffff;
-  --line: #e7e7e5;
-  --text: #0a0a0a;
-  --text-muted: #525252;
-  --text-subtle: #737373;
-  --accent: #0657e6;
-  --accent-hover: #0546b8;
-  --radius: 8px;
-  --radius-pill: 100px;
+  /* Backgrounds */
+  --bg: #FFFFFF;
+  --bg-muted: #F8FAFC;
+  --bg-cool: #F1F5F9;
+  --surface: #FFFFFF;
+
+  /* Dark section backgrounds */
+  --dark-bg: #080A0F;
+  --dark-surface: #111827;
+  --dark-card: #0B0F17;
+  --dark-border: rgba(255, 255, 255, 0.10);
+  --dark-card-border: rgba(255, 255, 255, 0.12);
+  --dark-text: #F8FAFC;
+  --dark-text-muted: #CBD5E1;
+
+  /* Borders */
+  --line: #E2E8F0;
+  --line-strong: #CBD5E1;
+
+  /* Text */
+  --text: #0F172A;
+  --text-muted: #475569;
+  --text-subtle: #64748B;
+
+  /* Accent (blue for chips, highlights, selected states, focus rings) */
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-soft: #EFF6FF;
+  --accent-border: #BFDBFE;
+
+  /* Radii */
+  --radius: 12px;
+  --radius-card: 24px;
+  --radius-pill: 999px;
+
+  /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2.5rem;
   --space-xl: 4rem;
-  --space-2xl: 5.5rem;
-  --max: 1080px;
-  --narrow: 680px;
+  --space-2xl: 6rem;
+  --space-3xl: 8.75rem;
+
+  /* Section padding */
+  --section-py: clamp(4.5rem, 10vw, 8.75rem);
+  --section-py-compact: clamp(3.5rem, 7vw, 6rem);
+
+  /* Layout */
+  --max: 1200px;
+  --narrow: 720px;
+  --form-max: 520px;
+
+  /* Typography scale */
   --font: "DM Sans", system-ui, -apple-system, sans-serif;
+  --text-hero: clamp(2.5rem, 5.5vw, 4.75rem);
+  --text-section: clamp(1.75rem, 4vw, 3.5rem);
+  --text-card-heading: clamp(1.25rem, 2vw, 1.625rem);
+  --text-body: clamp(1rem, 1.2vw, 1.125rem);
+  --text-small: clamp(0.75rem, 1vw, 0.875rem);
+
+  /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -112,7 +152,7 @@ a {
   color: var(--text-subtle);
 }
 
-/* Buttons — pill primary (common on Revolut / modern fintech marketing) */
+/* Buttons - pill primary (common on Revolut / modern fintech marketing) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -178,7 +218,7 @@ a {
 
 .section--bordered {
   border-block: 1px solid var(--line);
-  background: var(--bg-band);
+  background: var(--bg-cool);
 }
 
 .section__title {
@@ -329,7 +369,7 @@ a {
   padding: var(--space-sm);
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) - 2px);
-  background: var(--bg-band);
+  background: var(--bg-cool);
 }
 
 .hero-chart__panel-title {
@@ -391,10 +431,10 @@ a {
   }
 }
 
-/* Hero graphic — Option B: funnel, pipeline slot, revenue bars */
+/* Hero graphic - Option B: funnel, pipeline slot, revenue bars */
 .hero-funnel {
   border-radius: calc(var(--radius) - 2px);
-  background: var(--bg-band);
+  background: var(--bg-cool);
   border: 1px solid var(--line);
   padding: var(--space-md) var(--space-md) var(--space-sm);
   display: flex;
@@ -582,7 +622,7 @@ a {
   }
 }
 
-/* How it works — pain vs resolution */
+/* How it works - pain vs resolution */
 .process {
   background: var(--bg-muted);
   border-bottom: 1px solid var(--line);
@@ -704,7 +744,7 @@ a {
   }
 }
 
-/* Why Revomnis — switch + elaboration */
+/* Why Revomnis - switch + elaboration */
 .value {
   border-bottom: 1px solid var(--line);
 }
@@ -854,10 +894,10 @@ a {
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Signals — industry context strip */
+/* Signals - industry context strip */
 .proof {
   border-bottom: 1px solid var(--line);
-  background: var(--bg-band);
+  background: var(--bg-cool);
 }
 
 .proof .section__title {
@@ -1042,7 +1082,7 @@ a {
   color: var(--text-subtle);
 }
 
-/* Scroll — subtle fade only */
+/* Scroll - subtle fade only */
 .animate-in {
   opacity: 0;
   transform: translateY(10px);
@@ -1092,7 +1132,7 @@ a {
   }
 }
 
-/* Pricing — custom engagement, operator positioning */
+/* Pricing - custom engagement, operator positioning */
 .pricing {
   padding-block: clamp(3.5rem, 8vw, 5.25rem);
   border-bottom: 1px solid var(--line);
@@ -1135,7 +1175,7 @@ a {
   padding: var(--space-lg) var(--space-md);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--bg-band);
+  background: var(--bg-cool);
   max-width: 28rem;
 }
 
@@ -1589,7 +1629,7 @@ a {
   padding: var(--space-md);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--bg-band);
+  background: var(--bg-cool);
 }
 
 .pricing__phase-label {
@@ -1634,7 +1674,7 @@ a {
 }
 
 /* ──────────────────────────────────────────────
-   Footer — expanded layout
+   Footer - expanded layout
    ────────────────────────────────────────────── */
 
 .site-footer__brand {
@@ -1689,7 +1729,7 @@ a {
 }
 
 /* ──────────────────────────────────────────────
-   Final CTA — two-column with image
+   Final CTA - two-column with image
    ────────────────────────────────────────────── */
 
 .final-cta__layout {
