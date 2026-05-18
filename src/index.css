@@ -202,14 +202,62 @@ a {
   background: var(--bg-muted);
 }
 
+.btn--secondary {
+  background: #fff;
+  color: var(--text);
+  border-color: #fff;
+}
+
+.btn--secondary:hover {
+  background: var(--bg-muted);
+  border-color: var(--bg-muted);
+}
+
 .btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
+/* Status chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  line-height: 1.4;
+}
+
+.chip--blue {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.chip--green {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.chip--amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.chip--gray {
+  background: var(--bg-cool);
+  color: var(--text-subtle);
+}
+
 /* Sections */
 .section {
-  padding-block: var(--space-xl);
+  padding-block: var(--section-py);
+}
+
+.section--compact {
+  padding-block: var(--section-py-compact);
 }
 
 .section--tight {
@@ -219,6 +267,37 @@ a {
 .section--bordered {
   border-block: 1px solid var(--line);
   background: var(--bg-cool);
+}
+
+.section--muted {
+  background: var(--bg-muted);
+}
+
+.section--cool {
+  background: var(--bg-cool);
+}
+
+.section--dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.section--dark .section__title {
+  color: var(--dark-text-muted);
+}
+
+/* Base card primitives */
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: var(--space-md);
+  background: var(--surface);
+}
+
+.card--dark {
+  background: var(--dark-surface);
+  border-color: var(--dark-card-border);
+  color: var(--dark-text);
 }
 
 .section__title {

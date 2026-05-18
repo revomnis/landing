@@ -53,7 +53,7 @@ export function LandingPage() {
             </ul>
           </nav>
           <Button href={CTA_HREF} variant="ghost" size="sm">
-            Book Free Consultation
+            Book a Free Consultation
           </Button>
           <button
             type="button"

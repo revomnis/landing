@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 import { cn } from "../lib/cn";
 
 type Base = {
-  variant?: "primary" | "ghost";
+  variant?: "primary" | "ghost" | "secondary";
   size?: "sm" | "lg";
   className?: string;
   children: ReactNode;
@@ -26,6 +26,7 @@ export function Button({
     "btn",
     variant === "primary" && "btn--primary",
     variant === "ghost" && "btn--ghost",
+    variant === "secondary" && "btn--secondary",
     size === "sm" && "btn--sm",
     size === "lg" && "btn--lg",
     className
