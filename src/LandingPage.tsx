@@ -9,6 +9,7 @@ import { DELIVERABLES } from "./landing/deliverablesData";
 import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
 import { FAQ_ITEMS } from "./landing/faqData";
 import { Hero } from "./landing/Hero";
+import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
 import { PROCESS_STEPS } from "./landing/processData";
 import { SIGNAL_ITEMS } from "./landing/signalsData";
@@ -369,6 +370,8 @@ export function LandingPage() {
         </section>
 
         <RevomnisEngine />
+
+        <PortalVisibility />
 
         <section id="process" className="process section" aria-labelledby="process-heading">
           <div className="container">

@@ -251,6 +251,11 @@ a {
   color: var(--text-subtle);
 }
 
+.chip--sm {
+  padding: 0.15rem 0.45rem;
+  font-size: 0.6875rem;
+}
+
 /* Sections */
 .section {
   padding-block: var(--section-py);
@@ -3156,4 +3161,199 @@ a {
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--line);
+}
+
+/* ═══════════════════════════════════════════════════
+   Portal Visibility section
+   ═══════════════════════════════════════════════════ */
+
+.portal-vis__layout {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .portal-vis__layout {
+    grid-template-columns: 0.58fr 0.42fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .portal-vis__visual {
+    order: -1;
+  }
+}
+
+/* Copy column */
+
+.portal-vis__headline {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-section);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.portal-vis__sub {
+  margin: 0 0 var(--space-lg);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+/* Visibility categories */
+
+.portal-vis__cats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.portal-vis__cat {
+  padding-left: var(--space-sm);
+  border-left: 2px solid var(--accent-border);
+}
+
+.portal-vis__cat-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.portal-vis__cat-desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Portal mockup extension (larger scale in this section) */
+
+.portal-vis__mock {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+@media (min-width: 960px) {
+  .portal-vis__mock {
+    max-width: none;
+  }
+}
+
+/* Tab bar */
+
+.portal-v__tabs {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.portal-v__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.portal-v__tab {
+  flex-shrink: 0;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text-subtle);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.portal-v__tab--active {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* Row-dot gray variant */
+
+.portal-mock__row-dot--gray {
+  background: var(--text-subtle);
+  opacity: 0.4;
+}
+
+/* Meeting context panel */
+
+.portal-v__meeting-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.4rem 0 0.6rem;
+}
+
+.portal-v__meeting-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.portal-v__meeting-count {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.portal-v__meeting-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.portal-v__meeting-item + .portal-v__meeting-item::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1rem;
+  background: var(--line);
+  margin-right: 0.5rem;
+  align-self: center;
+}
+
+.portal-v__meeting-qual {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.portal-v__meeting-qual-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.portal-v__meeting-qual-value {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Mobile: stack columns inside mockup */
+
+@media (max-width: 519px) {
+  .portal-v__meeting-sources {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .portal-v__meeting-item + .portal-v__meeting-item::before {
+    display: none;
+  }
 }
