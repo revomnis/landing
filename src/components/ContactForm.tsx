@@ -12,7 +12,7 @@ export function ContactForm() {
     const data = new FormData(form);
     const name = data.get("name") as string;
     const email = data.get("email") as string;
-    const company = data.get("company") as string;
+    const website = data.get("website") as string;
     const message = data.get("message") as string;
 
     if (FORM_ACTION) {
@@ -20,7 +20,7 @@ export function ContactForm() {
         const res = await fetch(FORM_ACTION, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ name, email, company, message }),
+          body: JSON.stringify({ name, email, website, message }),
         });
         if (!res.ok) throw new Error("Submission failed");
         setStatus("sent");
@@ -31,8 +31,8 @@ export function ContactForm() {
       return;
     }
 
-    const body = `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`;
-    window.location.href = `mailto:${CONSULTATION_EMAIL}?subject=${encodeURIComponent("Free consultation")}&body=${encodeURIComponent(body)}`;
+    const body = `Name: ${name}\nEmail: ${email}\nWebsite: ${website}\n\n${message}`;
+    window.location.href = `mailto:${CONSULTATION_EMAIL}?subject=${encodeURIComponent("Consultation request")}&body=${encodeURIComponent(body)}`;
     setTimeout(() => {
       setStatus("sent");
       form.reset();
@@ -42,7 +42,7 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="contact-form__success">
-        <p className="contact-form__success-title">Message received.</p>
+        <p className="contact-form__success-title">Request received.</p>
         <p className="contact-form__success-sub">
           We'll review your details and reply within one business day.
         </p>
@@ -83,29 +83,29 @@ export function ContactForm() {
         </div>
       </div>
       <div className="contact-form__field">
-        <label htmlFor="cf-company" className="contact-form__label">
-          Company
+        <label htmlFor="cf-website" className="contact-form__label">
+          Company website
         </label>
         <input
-          id="cf-company"
-          name="company"
-          type="text"
+          id="cf-website"
+          name="website"
+          type="url"
           required
           className="contact-form__input"
-          placeholder="Company name"
-          autoComplete="organization"
+          placeholder="https://yourcompany.com"
+          autoComplete="url"
         />
       </div>
       <div className="contact-form__field">
         <label htmlFor="cf-message" className="contact-form__label">
-          Tell us about your market and goals
+          What are you trying to build?
         </label>
         <textarea
           id="cf-message"
           name="message"
           rows={4}
           className="contact-form__textarea"
-          placeholder="What does your ideal customer look like? What outbound have you tried?"
+          placeholder="Who do you sell to, what does outbound look like today, and what are you trying to achieve?"
         />
       </div>
       <button
@@ -113,7 +113,7 @@ export function ContactForm() {
         className="btn btn--primary btn--lg contact-form__submit"
         disabled={status === "sending"}
       >
-        {status === "sending" ? "Sending\u2026" : "Book Free Consultation"}
+        {status === "sending" ? "Sending\u2026" : "Request a consultation"}
       </button>
       {status === "error" && (
         <p className="contact-form__error">

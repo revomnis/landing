@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Button } from "./components/Button";
-import { ContactForm } from "./components/ContactForm";
 import { PricingSection } from "./components/PricingSection";
 import { CTA_HREF } from "./lib/constants";
-import { SITE_MEDIA } from "./lib/siteMedia";
 import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
 import { FaqSection } from "./landing/FaqSection";
+import { FinalCta } from "./landing/FinalCta";
 import { Hero } from "./landing/Hero";
 import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
@@ -367,32 +366,7 @@ export function LandingPage() {
 
         <FaqSection />
 
-        <section id="consultation" className="final-cta section" aria-labelledby="final-heading">
-          <div className="container final-cta__layout">
-            <div className="final-cta__content">
-              <h2 id="final-heading" className="final-cta__title animate-in">
-                If your calendar isn&apos;t filling with the right prospects, we fix that.
-              </h2>
-              <p className="final-cta__sub animate-in animate-in--delay-1">
-                Tell us about your market and goals — we reply within one business day.
-              </p>
-              <div className="animate-in animate-in--delay-2 final-cta__form-wrap">
-                <ContactForm />
-              </div>
-            </div>
-            <figure className="final-cta__figure animate-in animate-in--delay-2">
-              <img
-                src={SITE_MEDIA.ctaMeeting}
-                alt="Business meeting"
-                className="final-cta__img"
-                width={640}
-                height={480}
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          </div>
-        </section>
+        <FinalCta />
       </main>
 
       <footer className="site-footer">

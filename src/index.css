@@ -1642,30 +1642,42 @@ a {
 /* Final CTA */
 .final-cta {
   padding-block: var(--space-2xl);
+  background: var(--bg);
   text-align: left;
 }
 
-.final-cta .btn--primary {
-  align-self: flex-start;
+.final-cta__eyebrow {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
 }
 
 .final-cta__title {
-  margin: 0 0 var(--space-sm);
-  font-size: clamp(1.5rem, 3.2vw, 2.125rem);
+  margin: 0 0 var(--space-md);
+  font-size: var(--text-section);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: var(--text);
-  max-width: 22ch;
 }
 
 .final-cta__sub {
-  margin: 0 0 var(--space-lg);
-  font-size: 1rem;
-  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+  font-size: var(--text-body);
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 28rem;
-  letter-spacing: -0.01em;
+  max-width: 34rem;
+}
+
+.final-cta__support {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--text-subtle);
+  max-width: 34rem;
 }
 
 /* Footer */
@@ -3585,7 +3597,8 @@ a {
    Contact form
    ────────────────────────────────────────────── */
 
-.final-cta__form-wrap {
+/* form card submit button fills width on mobile */
+.final-cta__form-card .contact-form__submit {
   align-self: stretch;
 }
 
@@ -3744,19 +3757,19 @@ a {
 }
 
 /* ──────────────────────────────────────────────
-   Final CTA - two-column with image
+   Final CTA - two-column (copy + form card)
    ────────────────────────────────────────────── */
 
 .final-cta__layout {
   display: grid;
   gap: var(--space-xl);
-  align-items: center;
-  max-width: var(--max);
+  align-items: start;
 }
 
 @media (min-width: 860px) {
   .final-cta__layout {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
   }
 }
 
@@ -3764,18 +3777,20 @@ a {
   min-width: 0;
 }
 
-.final-cta__figure {
-  margin: 0;
+.final-cta__form-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.03);
 }
 
-.final-cta__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
+.final-cta__form-label {
+  margin: 0 0 var(--space-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 /* ═══════════════════════════════════════════════════
