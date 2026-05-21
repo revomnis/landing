@@ -5,18 +5,11 @@ import { PricingSection } from "./components/PricingSection";
 import { CTA_HREF } from "./lib/constants";
 import { SITE_MEDIA } from "./lib/siteMedia";
 import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
-import { FAQ_ITEMS } from "./landing/faqData";
+import { FaqSection } from "./landing/FaqSection";
 import { Hero } from "./landing/Hero";
 import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
-
-const delayClass = (i: number) => {
-  if (i === 1) return "animate-in--delay-1";
-  if (i === 2) return "animate-in--delay-2";
-  if (i === 3) return "animate-in--delay-3";
-  return "";
-};
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
@@ -372,24 +365,7 @@ export function LandingPage() {
 
         <PricingSection />
 
-        <section id="faq" className="faq section" aria-labelledby="faq-heading">
-          <div className="container narrow">
-            <h2 id="faq-heading" className="section__title animate-in">
-              FAQ
-            </h2>
-            <div className="faq__list">
-              {FAQ_ITEMS.map((item, index) => (
-                <article
-                  key={item.q}
-                  className={`faq__item animate-in ${delayClass(index % 4)}`}
-                >
-                  <h3 className="faq__question">{item.q}</h3>
-                  <p className="faq__answer">{item.a}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FaqSection />
 
         <section id="consultation" className="final-cta section" aria-labelledby="final-heading">
           <div className="container final-cta__layout">
