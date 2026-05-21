@@ -2,18 +2,14 @@ import { useState } from "react";
 import { Button } from "./components/Button";
 import { ContactForm } from "./components/ContactForm";
 import { PricingSection } from "./components/PricingSection";
-import { ValueCard } from "./components/ValueCard";
 import { CTA_HREF } from "./lib/constants";
 import { SITE_MEDIA } from "./lib/siteMedia";
-import { DELIVERABLES } from "./landing/deliverablesData";
 import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
 import { FAQ_ITEMS } from "./landing/faqData";
 import { Hero } from "./landing/Hero";
 import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
-import { SIGNAL_ITEMS } from "./landing/signalsData";
-import { VALUE_CARDS } from "./landing/valueData";
 
 const delayClass = (i: number) => {
   if (i === 1) return "animate-in--delay-1";
@@ -23,8 +19,7 @@ const delayClass = (i: number) => {
 };
 
 const NAV_LINKS = [
-  { label: "How It Works", href: "#process" },
-  { label: "Why Revomnis", href: "#value" },
+  { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ] as const;
@@ -375,85 +370,6 @@ export function LandingPage() {
 
         <ManagedEngagement />
 
-        <figure className="visual-break animate-in" aria-hidden="true">
-          <img
-            src={SITE_MEDIA.visualBreak}
-            alt=""
-            className="visual-break__img"
-            width={1920}
-            height={800}
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-
-        <section id="value" className="value section" aria-labelledby="value-heading">
-          <div className="container">
-            <h2 id="value-heading" className="section__title animate-in">
-              Why Revomnis
-            </h2>
-            <p className="value__intro animate-in animate-in--delay-1">
-              Flip each switch to compare the friction you feel today with how we operate alongside
-              your team.
-            </p>
-            <div className="value__cards">
-              {VALUE_CARDS.map((card, index) => (
-                <ValueCard
-                  key={card.headline}
-                  headline={card.headline}
-                  friction={card.friction}
-                  revomnis={card.revomnis}
-                  accent={card.accent}
-                  animateClass={`animate-in ${delayClass(index)}`}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="deliverables section" aria-labelledby="deliverables-heading">
-          <div className="container">
-            <h2 id="deliverables-heading" className="section__title animate-in">
-              Everything included
-            </h2>
-            <p className="deliverables__lede animate-in animate-in--delay-1">
-              Every engagement includes the full stack — from audience definition to booked meetings
-              and reporting.
-            </p>
-            <div className="deliverables__grid">
-              {DELIVERABLES.map((item, index) => (
-                <div
-                  key={item.title}
-                  className={`deliverables__item animate-in ${delayClass(index % 4)}`}
-                >
-                  <h3 className="deliverables__item-title">{item.title}</h3>
-                  <p className="deliverables__item-desc">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="proof section" aria-labelledby="signals-heading">
-          <div className="container">
-            <h2 id="signals-heading" className="section__title animate-in">
-              How we operate
-            </h2>
-            <p className="proof__lede animate-in animate-in--delay-1">
-              Three principles that shape every Revomnis engagement — and the outcomes we optimize
-              for.
-            </p>
-            <div className="proof__metrics animate-in animate-in--delay-2">
-              {SIGNAL_ITEMS.map((item) => (
-                <div key={item.kicker} className="proof__metric proof__metric--standard">
-                  <span className="proof__metric-kicker">{item.kicker}</span>
-                  <span className="proof__metric-label">{item.body}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <PricingSection />
 
         <section id="faq" className="faq section" aria-labelledby="faq-heading">
@@ -510,7 +426,7 @@ export function LandingPage() {
             <p className="site-footer__copy">&copy; Revomnis. All rights reserved.</p>
           </div>
           <nav className="site-footer__nav" aria-label="Footer navigation">
-            <a href="#process">How It Works</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a href="#consultation">Contact</a>
