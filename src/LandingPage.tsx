@@ -9,9 +9,9 @@ import { DELIVERABLES } from "./landing/deliverablesData";
 import { DIFF_COLUMNS, DIFF_ROWS } from "./landing/differentiationData";
 import { FAQ_ITEMS } from "./landing/faqData";
 import { Hero } from "./landing/Hero";
+import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
-import { PROCESS_STEPS } from "./landing/processData";
 import { SIGNAL_ITEMS } from "./landing/signalsData";
 import { VALUE_CARDS } from "./landing/valueData";
 
@@ -373,42 +373,7 @@ export function LandingPage() {
 
         <PortalVisibility />
 
-        <section id="process" className="process section" aria-labelledby="process-heading">
-          <div className="container">
-            <header className="process__header animate-in">
-              <h2 id="process-heading" className="section__title">
-                How it works
-              </h2>
-              <p className="process__lede">
-                Each step names a common outbound pain — and how Revomnis removes it with a system,
-                not ad-hoc tasks.
-              </p>
-            </header>
-            <ol className="process__list">
-              {PROCESS_STEPS.map((step, index) => (
-                <li
-                  key={step.title}
-                  className={`process__step animate-in ${delayClass(index % 4)}`}
-                >
-                  <span className="process__index" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="process__body">
-                    <h3 className="process__title">{step.title}</h3>
-                    <p className="process__pain">
-                      <span className="process__tag">Pain</span>
-                      {step.pain}
-                    </p>
-                    <p className="process__resolve">
-                      <span className="process__tag process__tag--resolve">Revomnis</span>
-                      {step.resolve}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <ManagedEngagement />
 
         <figure className="visual-break animate-in" aria-hidden="true">
           <img
