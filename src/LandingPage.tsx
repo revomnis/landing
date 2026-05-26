@@ -61,6 +61,8 @@ export function LandingPage() {
       <main>
         <Hero />
 
+        <RevomnisEngine />
+
         <section className="diff section" aria-labelledby="diff-heading">
           <div className="container">
             <h2 id="diff-heading" className="section__title animate-in">
@@ -355,8 +357,6 @@ export function LandingPage() {
             </div>
           </div>
         </section>
-
-        <RevomnisEngine />
 
         <PortalVisibility />
 
