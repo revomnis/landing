@@ -484,6 +484,20 @@ a {
   }
 }
 
+@media (min-width: 1440px) {
+  .hero__copy {
+    max-width: 64rem;
+  }
+
+  .hero__title {
+    max-width: 26ch;
+  }
+
+  .hero__sub {
+    max-width: 52rem;
+  }
+}
+
 .hero__visual {
   justify-self: stretch;
   width: 100%;
