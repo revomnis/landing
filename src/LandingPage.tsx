@@ -110,6 +110,35 @@ export function LandingPage() {
               </table>
             </div>
 
+            <div className="diff__mobile-cards animate-in animate-in--delay-2">
+              <article className="diff__mobile-card">
+                <h3 className="diff__mobile-card-label">In-house / DIY outbound</h3>
+                <p className="diff__mobile-card-copy">
+                  Your team owns the tools, inboxes, lists, copy, replies,
+                  reporting, and trial-and-error.
+                </p>
+              </article>
+
+              <article className="diff__mobile-card">
+                <h3 className="diff__mobile-card-label">Generic lead-gen agency</h3>
+                <p className="diff__mobile-card-copy">
+                  Activity is often reported through leads, sends, opens, and
+                  surface metrics, while qualification and interpretation stay
+                  unclear.
+                </p>
+              </article>
+
+              <article className="diff__mobile-card diff__mobile-card--rev">
+                <h3 className="diff__mobile-card-label">Revomnis</h3>
+                <p className="diff__mobile-card-copy">
+                  Revomnis runs the connected outbound system: audience
+                  definition, managed infrastructure, coordinated email +
+                  LinkedIn, reply handling, portal visibility, and qualified
+                  meetings.
+                </p>
+              </article>
+            </div>
+
             <p className="diff__closing animate-in animate-in--delay-3">
               Revomnis is built for teams that want outbound working without assembling
               the machinery themselves.
@@ -180,6 +209,7 @@ export function LandingPage() {
                   </div>
                   <div className="bc__vis-note bc-seg__note--anim">Low-fit contacts removed before launch</div>
                 </div>
+                <p className="bc__kicker">Weak targeting</p>
                 <h3 className="bc__title">The wrong audience gets targeted</h3>
                 <p className="bc__copy">
                   Weak ICP logic turns every contact into a prospect, even when
@@ -238,6 +268,7 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <p className="bc__kicker">Disconnected channels</p>
                 <h3 className="bc__title">The buyer experience becomes fragmented</h3>
                 <p className="bc__copy">
                   Email, LinkedIn, and follow-up activity happen separately, so
@@ -302,6 +333,7 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <p className="bc__kicker">Intent gets lost</p>
                 <h3 className="bc__title">Real intent gets lost</h3>
                 <p className="bc__copy">
                   Interested replies stall, objections go unanswered, and
@@ -344,9 +376,14 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <p className="bc__kicker">Revomnis connects the system</p>
                 <h3 className="bc__title">Revomnis brings the system together</h3>
                 <p className="bc__copy">
                   The moving parts become one managed outbound engine.
+                </p>
+                <p className="bc__copy-mobile">
+                  Audience, channels, infrastructure, replies, and visibility
+                  operate as one managed outbound system.
                 </p>
                 <p className="bc__sub">
                   Audience, channels, infrastructure, replies, and visibility

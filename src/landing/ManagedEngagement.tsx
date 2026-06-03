@@ -1,5 +1,31 @@
 import { WORKSTREAMS } from "./managedEngagementData";
 
+const MOBILE_PROCESS_STEPS = [
+  {
+    title: "Define the market",
+    description:
+      "Audience evidence, fit signals, exclusions, and segment logic.",
+  },
+  {
+    title: "Build the outbound layer",
+    description:
+      "Infrastructure, message structure, and campaign foundations.",
+  },
+  {
+    title: "Run coordinated outreach",
+    description:
+      "Email and LinkedIn operate around one audience logic.",
+  },
+  {
+    title: "Handle replies",
+    description: "Responses are reviewed, qualified, and moved forward.",
+  },
+  {
+    title: "Book meetings",
+    description: "The right conversation reaches the calendar.",
+  },
+] as const;
+
 export function ManagedEngagement() {
   return (
     <section
@@ -81,6 +107,23 @@ export function ManagedEngagement() {
                   ))}
                 </div>
               </div>
+            ))}
+          </div>
+
+          <div className="hiw__mobile-flow" aria-label="How It Works mobile flow">
+            {MOBILE_PROCESS_STEPS.map((step, index) => (
+              <article
+                key={step.title}
+                className={`hiw__mobile-step${index === MOBILE_PROCESS_STEPS.length - 1 ? " hiw__mobile-step--final" : ""}`}
+              >
+                <span className="hiw__mobile-step-num" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <div className="hiw__mobile-step-copy">
+                  <h3 className="hiw__mobile-step-title">{step.title}</h3>
+                  <p className="hiw__mobile-step-desc">{step.description}</p>
+                </div>
+              </article>
             ))}
           </div>
 

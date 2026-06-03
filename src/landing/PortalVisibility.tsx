@@ -44,6 +44,21 @@ export function PortalVisibility() {
         {/* ── Portal mockup column (desktop left via order) ── */}
         <div className="portal-vis__visual animate-in animate-in--delay-2">
           <div
+            className="portal-vis__mobile-summary"
+            aria-label="Portal visibility summary"
+          >
+            <p className="portal-vis__mobile-summary-title">Visibility summary</p>
+            <div className="portal-vis__mobile-cards">
+              {VISIBILITY_CATEGORIES.map((cat) => (
+                <article key={cat.title} className="portal-vis__mobile-card">
+                  <h3 className="portal-vis__mobile-card-title">{cat.title}</h3>
+                  <p className="portal-vis__mobile-card-desc">{cat.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div
             className="portal-mock portal-vis__mock"
             aria-label="Revomnis Portal visibility view"
           >
