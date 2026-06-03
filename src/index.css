@@ -4661,9 +4661,15 @@ a {
 /* Visibility categories */
 
 .portal-vis__cats {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .portal-vis__cats {
+    display: flex;
+  }
 }
 
 .portal-vis__cat {
@@ -4701,7 +4707,16 @@ a {
 }
 
 .portal-vis__mobile-summary {
-  display: none;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .portal-vis__mobile-summary {
+    display: none;
+  }
 }
 
 .portal-vis__mobile-summary-title {
@@ -4743,19 +4758,8 @@ a {
 }
 
 @media (max-width: 767px) {
-  .portal-vis__cats {
-    display: none;
-  }
-
   .portal-vis__mock {
     display: none;
-  }
-
-  .portal-vis__mobile-summary {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
   }
 }
 
