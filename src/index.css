@@ -4743,6 +4743,10 @@ a {
 }
 
 @media (max-width: 767px) {
+  .portal-vis__cats {
+    display: none;
+  }
+
   .portal-vis__mock {
     display: none;
   }
