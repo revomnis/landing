@@ -523,9 +523,16 @@ a {
 
 @media (max-width: 959px) {
   .hero {
-    min-height: auto;
+    min-height: calc(100vh - 3.75rem);
+    min-height: calc(100svh - 3.75rem);
+    display: flex;
+    align-items: center;
     padding-top: clamp(2.4rem, 9vw, 3.6rem);
     padding-bottom: clamp(3.2rem, 11vw, 4.6rem);
+  }
+
+  .hero__layout {
+    width: 100%;
   }
 
   .hero__title-main {
@@ -5410,5 +5417,47 @@ a {
 
   .portal-vis__sub {
     margin-bottom: var(--space-sm);
+  }
+}
+
+/* Mobile-only sticky bottom CTA (matches the primary Hero CTA styling) */
+.mobile-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 959px) {
+  .mobile-sticky-cta {
+    position: fixed;
+    left: 50%;
+    bottom: calc(0.85rem + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: calc(100vw - 2rem);
+    padding: 0.95rem 1.85rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    background: var(--text);
+    border: 1px solid var(--text);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.28);
+  }
+
+  .mobile-sticky-cta:hover {
+    background: #262626;
+    border-color: #262626;
+  }
+
+  /* Keep the fixed CTA clear of footer links so nothing is covered at full scroll */
+  .site-footer {
+    padding-bottom: calc(var(--space-lg) + 4.75rem + env(safe-area-inset-bottom));
   }
 }

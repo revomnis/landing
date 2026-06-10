@@ -428,6 +428,10 @@ export function LandingPage() {
           </div>
         </div>
       </footer>
+
+      <a className="mobile-sticky-cta" href={CTA_HREF}>
+        Book a Free Consultation
+      </a>
     </>
   );
 }
