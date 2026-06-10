@@ -20,10 +20,6 @@ const MOBILE_PROCESS_STEPS = [
     title: "Handle replies",
     description: "Responses are reviewed, qualified, and moved forward.",
   },
-  {
-    title: "Book meetings",
-    description: "The right conversation reaches the calendar.",
-  },
 ] as const;
 
 export function ManagedEngagement() {
@@ -114,7 +110,7 @@ export function ManagedEngagement() {
             {MOBILE_PROCESS_STEPS.map((step, index) => (
               <article
                 key={step.title}
-                className={`hiw__mobile-step${index === MOBILE_PROCESS_STEPS.length - 1 ? " hiw__mobile-step--final" : ""}`}
+                className="hiw__mobile-step"
               >
                 <span className="hiw__mobile-step-num" aria-hidden="true">
                   {index + 1}

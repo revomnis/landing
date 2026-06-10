@@ -151,11 +151,16 @@ export function LandingPage() {
             <h2 id="breaks-heading" className="section__title animate-in">
               Where outbound usually breaks
             </h2>
-            <p className="breaks__lede animate-in animate-in--delay-1">
+            <p className="breaks__lede breaks__lede--full animate-in animate-in--delay-1">
               Poor meetings usually start before anyone reaches the calendar.
               They come from weak targeting, disconnected channels, unmanaged
               replies, and reporting that shows activity without explaining what
               it means.
+            </p>
+            <p className="breaks__lede breaks__lede--compact animate-in animate-in--delay-1">
+              Poor meetings start upstream: weak targeting, disconnected
+              channels, lost replies, and reporting that shows activity without
+              meaning.
             </p>
             <div className="breaks__grid">
 
