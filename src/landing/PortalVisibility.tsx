@@ -48,12 +48,12 @@ export function PortalVisibility() {
             aria-label="Portal visibility summary"
           >
             <p className="portal-vis__mobile-summary-title">Visibility summary</p>
-            <div className="portal-vis__mobile-cards">
+            <div className="portal-vis__mobile-panel">
               {VISIBILITY_CATEGORIES.map((cat) => (
-                <article key={cat.title} className="portal-vis__mobile-card">
-                  <h3 className="portal-vis__mobile-card-title">{cat.title}</h3>
-                  <p className="portal-vis__mobile-card-desc">{cat.description}</p>
-                </article>
+                <div key={cat.title} className="portal-vis__mobile-row">
+                  <h3 className="portal-vis__mobile-row-title">{cat.title}</h3>
+                  <p className="portal-vis__mobile-row-desc">{cat.description}</p>
+                </div>
               ))}
             </div>
           </div>

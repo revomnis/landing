@@ -14,9 +14,9 @@ export function Hero() {
             </span>
           </h1>
           <p className="hero__sub animate-in animate-in--delay-2">
-            Revomnis is a boutique outbound agency that builds and runs coordinated outbound
-            systems for B2B companies, including audience definition, managed infrastructure,
-            email + LinkedIn execution, reply handling, qualified meetings, and portal visibility.
+            Revomnis builds and runs coordinated email + LinkedIn outbound for
+            B2B companies, covering audience definition, infrastructure, reply
+            handling, and qualified meetings.
           </p>
           <div className="hero__cta animate-in animate-in--delay-3">
             <div className="hero__cta-row">
