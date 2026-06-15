@@ -5430,7 +5430,9 @@ a {
     position: fixed;
     left: 50%;
     bottom: calc(0.85rem + env(safe-area-inset-bottom));
-    transform: translateX(-50%);
+    transform: translate(-50%, 14px);
+    opacity: 0;
+    pointer-events: none;
     z-index: 60;
     display: inline-flex;
     align-items: center;
@@ -5449,6 +5451,13 @@ a {
     border: 1px solid var(--text);
     border-radius: var(--radius-pill);
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.28);
+    transition: opacity 190ms ease, transform 190ms ease;
+  }
+
+  .mobile-sticky-cta.is-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .mobile-sticky-cta:hover {

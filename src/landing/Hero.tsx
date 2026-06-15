@@ -18,7 +18,7 @@ export function Hero() {
             B2B companies, covering audience definition, infrastructure, reply
             handling, and qualified meetings.
           </p>
-          <div className="hero__cta animate-in animate-in--delay-3">
+          <div id="hero-cta" className="hero__cta animate-in animate-in--delay-3">
             <div className="hero__cta-row">
               <Button href={CTA_HREF} variant="primary" size="lg">
                 Book a Free Consultation

@@ -9,6 +9,7 @@ import { Hero } from "./landing/Hero";
 import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
+import { StickyCta } from "./landing/StickyCta";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
@@ -429,9 +430,7 @@ export function LandingPage() {
         </div>
       </footer>
 
-      <a className="mobile-sticky-cta" href={CTA_HREF}>
-        Book a Free Consultation
-      </a>
+      <StickyCta />
     </>
   );
 }
