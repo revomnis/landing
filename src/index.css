@@ -5470,3 +5470,62 @@ a {
     padding-bottom: calc(var(--space-lg) + 4.75rem + env(safe-area-inset-bottom));
   }
 }
+
+/* ─────────────────────────────────────────────
+   Privacy page
+   ────────────────────────────────────────────── */
+
+.privacy {
+  padding-block: var(--section-py);
+}
+
+.privacy__inner {
+  max-width: var(--narrow);
+}
+
+.privacy__title {
+  font-size: var(--text-section);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem;
+}
+
+.privacy__updated {
+  font-size: var(--text-small);
+  color: var(--text-subtle);
+  margin: 0 0 var(--space-xl);
+}
+
+.privacy__section {
+  margin-bottom: var(--space-lg);
+}
+
+.privacy__section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.privacy__section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.privacy__section p,
+.privacy__section li {
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.privacy__section ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.privacy__section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

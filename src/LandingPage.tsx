@@ -10,6 +10,7 @@ import { ManagedEngagement } from "./landing/ManagedEngagement";
 import { PortalVisibility } from "./landing/PortalVisibility";
 import { RevomnisEngine } from "./landing/RevomnisEngine";
 import { StickyCta } from "./landing/StickyCta";
+import { CookieBanner } from "./components/CookieBanner";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
@@ -423,6 +424,7 @@ export function LandingPage() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a href="#consultation">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
           </nav>
           <div className="site-footer__contact">
             <a href="mailto:hello@revomnis.com">hello@revomnis.com</a>
@@ -430,6 +432,7 @@ export function LandingPage() {
         </div>
       </footer>
 
+      <CookieBanner />
       <StickyCta />
     </>
   );
