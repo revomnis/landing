@@ -185,8 +185,13 @@ async function run() {
     // Wait a moment for any useEffect-based head manipulation to settle
     await page.waitForSelector("main", { timeout: 10000 }).catch(() => {});
 
-    // Capture rendered body content
+    // Capture rendered body content.
+    // Strip the cookie consent banner: it's a client-only, effect-driven
+    // element. If baked into the static HTML, hydration renders null for it
+    // (initial `visible` is false) and never attaches click handlers, leaving
+    // dead Accept/Decline buttons that can't close the banner.
     const bodyContent = await page.evaluate(() => {
+      document.querySelector(".cookie-banner")?.remove();
       return document.getElementById("root")?.innerHTML || "";
     });
 

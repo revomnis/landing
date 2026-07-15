@@ -26,14 +26,25 @@ export function loadGA() {
   if (loaded) return;
   loaded = true;
 
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(script);
+  try {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
 
-  window.gtag("js", new Date());
-  window.gtag("consent", "update", { analytics_storage: "granted" });
-  window.gtag("config", GA_ID);
+    window.dataLayer = window.dataLayer || [];
+    if (typeof window.gtag !== "function") {
+      window.gtag = (...args: unknown[]) => {
+        window.dataLayer!.push(args);
+      };
+    }
+
+    window.gtag("js", new Date());
+    window.gtag("consent", "update", { analytics_storage: "granted" });
+    window.gtag("config", GA_ID);
+  } catch {
+    /* never let analytics break the UI */
+  }
 }
 
 declare global {
