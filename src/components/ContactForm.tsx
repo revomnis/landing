@@ -14,13 +14,21 @@ export function ContactForm() {
     const email = data.get("email") as string;
     const website = data.get("website") as string;
     const message = data.get("message") as string;
+    const botField = data.get("_gotcha") as string;
 
     if (FORM_ACTION) {
       try {
         const res = await fetch(FORM_ACTION, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ name, email, website, message }),
+          body: JSON.stringify({
+            name,
+            email,
+            website,
+            message,
+            _gotcha: botField,
+            _subject: `Consultation request from ${name || "website"}`,
+          }),
         });
         if (!res.ok) throw new Error("Submission failed");
         setStatus("sent");
@@ -52,6 +60,14 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div className="contact-form__row">
         <div className="contact-form__field">
           <label htmlFor="cf-name" className="contact-form__label">
