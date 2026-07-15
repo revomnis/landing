@@ -10,11 +10,12 @@
  * This ensures crawlers see the full page content without executing JS.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer } from "node:http";
-import puppeteer from "puppeteer";
+import { platform } from "node:os";
+import puppeteer from "puppeteer-core";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "../dist");
@@ -142,15 +143,34 @@ function startStaticServer(dir: string, port: number): Promise<ReturnType<typeof
   });
 }
 
+async function getChromePath(): Promise<string> {
+  if (platform() === "darwin") {
+    const paths = [
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    ];
+    const found = paths.find((p) => existsSync(p));
+    if (found) return found;
+    throw new Error("Chrome not found on macOS. Install Google Chrome.");
+  }
+
+  // Linux (Vercel build container) — use @sparticuz/chromium
+  const chromium = await import("@sparticuz/chromium");
+  return await chromium.default.executablePath();
+}
+
 async function run() {
   const PORT = 4199;
   console.log("Starting local server...");
   const server = await startStaticServer(DIST, PORT);
 
   console.log("Launching browser...");
+  const executablePath = await getChromePath();
+  console.log(`  Using Chrome: ${executablePath}`);
   const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu", "--disable-dev-shm-usage"],
+    executablePath,
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   const template = readFileSync(resolve(DIST, "index.html"), "utf-8");
