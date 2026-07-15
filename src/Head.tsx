@@ -1,26 +1,25 @@
-import { useEffect } from "react";
 import { type RouteSeo, getSeo } from "./seo";
 
 /**
  * Sets document <head> tags for the current route.
- * During SSR/prerender the tags are injected by the build script,
- * so this only matters for client-side navigations and dev mode.
+ * Tags are set synchronously during render so that Puppeteer captures them
+ * during the build-time prerender step. The prerender script then replaces
+ * them with static tags in the final HTML anyway, so this mainly serves
+ * dev mode and client-side navigation.
  */
 export function Head({ path }: { path: string }) {
   const seo: RouteSeo = getSeo(path);
 
-  useEffect(() => {
+  if (typeof document !== "undefined") {
     document.title = seo.title;
-
     setMeta("description", seo.description);
     setMeta("og:title", seo.title, "property");
     setMeta("og:description", seo.description, "property");
     setMeta("og:type", "website", "property");
     setMeta("og:image", seo.ogImage, "property");
     setMeta("og:url", seo.canonical, "property");
-
     setLink("canonical", seo.canonical);
-  }, [seo]);
+  }
 
   return null;
 }
