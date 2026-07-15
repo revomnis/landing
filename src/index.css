@@ -4656,6 +4656,23 @@ a {
   color: var(--text);
 }
 
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-footer__social a {
+  color: var(--text-muted);
+  transition: color 0.18s var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer__social a:hover {
+  color: var(--text);
+}
+
 /* ──────────────────────────────────────────────
    Visual break (full-width image band)
    ────────────────────────────────────────────── */

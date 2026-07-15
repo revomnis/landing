@@ -429,6 +429,18 @@ export function LandingPage() {
           <div className="site-footer__contact">
             <a href="mailto:hello@revomnis.com">hello@revomnis.com</a>
           </div>
+          <div className="site-footer__social">
+            <a
+              href="https://www.linkedin.com/company/revomnis"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Revomnis on LinkedIn"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5.07 7.04H2.03v10.04h3.04V7.04Zm.2-2.87a1.57 1.57 0 0 0-1.58-1.58c-.88 0-1.58.7-1.58 1.58 0 .87.7 1.57 1.58 1.57.87 0 1.57-.7 1.57-1.57Zm12.04 7.33c0-2.74-1.62-4.06-3.79-4.06-2.16 0-3.03 1.67-3.03 1.67V7.04H7.56v10.04h2.93v-5.58c0-1.55.71-2.56 2.04-2.56 1.13 0 1.86.78 1.86 2.33v5.81h3.04V11.5h-.12Z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
 
