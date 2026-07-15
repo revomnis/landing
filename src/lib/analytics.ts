@@ -31,18 +31,14 @@ export function loadGA() {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
   document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: unknown[]) {
-    window.dataLayer!.push(args);
-  }
-
-  gtag("js", new Date());
-  gtag("consent", "update", { analytics_storage: "granted" });
-  gtag("config", GA_ID);
+  window.gtag("js", new Date());
+  window.gtag("consent", "update", { analytics_storage: "granted" });
+  window.gtag("config", GA_ID);
 }
 
 declare global {
   interface Window {
     dataLayer?: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
