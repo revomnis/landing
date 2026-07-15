@@ -12,7 +12,8 @@ export function ContactForm() {
     const data = new FormData(form);
     const name = data.get("name") as string;
     const email = data.get("email") as string;
-    const website = data.get("website") as string;
+    const websiteRaw = ((data.get("website") as string) || "").trim();
+    const website = websiteRaw && !/^https?:\/\//i.test(websiteRaw) ? `https://${websiteRaw}` : websiteRaw;
     const message = data.get("message") as string;
     const botField = data.get("_gotcha") as string;
 
@@ -105,10 +106,11 @@ export function ContactForm() {
         <input
           id="cf-website"
           name="website"
-          type="url"
+          type="text"
+          inputMode="url"
           required
           className="contact-form__input"
-          placeholder="https://yourcompany.com"
+          placeholder="yourcompany.com"
           autoComplete="url"
         />
       </div>
