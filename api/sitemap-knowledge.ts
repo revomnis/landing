@@ -44,23 +44,17 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
     }));
   }
 
-  const indexLoc = `${SITE_URL}/knowledge`;
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${indexLoc}</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 ${urls
-  .map(
-    (u) => `  <url>
-    <loc>${u.loc}</loc>
-    ${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}
+  .map((u) => {
+    const lastmod = u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : "";
+    return `  <url>
+    <loc>${u.loc}</loc>${lastmod}
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`
-  )
+  </url>`;
+  })
   .join("\n")}
 </urlset>`;
 

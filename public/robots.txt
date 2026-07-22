@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow:
 
 Sitemap: https://revomnis.com/sitemap.xml
-Sitemap: https://revomnis.com/sitemap-knowledge.xml
