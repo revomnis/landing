@@ -166,6 +166,7 @@ export function PrivacyPage() {
             </p>
           </div>
           <div className="site-footer__contact">
+            <a href="/knowledge">Knowledge</a>
             <a href="mailto:hello@revomnis.com">hello@revomnis.com</a>
           </div>
         </div>

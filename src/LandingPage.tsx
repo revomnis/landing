@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
+  { label: "Knowledge", href: "/knowledge" },
 ] as const;
 
 export function LandingPage() {
@@ -423,6 +424,7 @@ export function LandingPage() {
             <a href="#how-it-works">How It Works</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
+            <a href="/knowledge">Knowledge</a>
             <a href="#consultation">Contact</a>
             <a href="/privacy">Privacy Policy</a>
           </nav>

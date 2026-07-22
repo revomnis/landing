@@ -10,6 +10,17 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/sitemap-knowledge.xml",
+      "destination": "/api/sitemap-knowledge"
+    },
+    {
+      "source": "/knowledge/:slug",
+      "destination": "/api/knowledge/:slug"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

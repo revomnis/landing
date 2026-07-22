@@ -63,6 +63,24 @@ const routes: RouteMeta[] = [
     description: "How Revomnis handles data, cookies, and privacy for its managed outbound service.",
     canonical: `${SITE_URL}/privacy`,
   },
+  {
+    path: "/knowledge",
+    title: "Knowledge — Outbound knowledge, curated by Revomnis",
+    description:
+      "Skip the rabbit hole. Best thinking on fit before volume, managed infrastructure, reply handling, and qualified meetings, with how we’d run it.",
+    canonical: `${SITE_URL}/knowledge`,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Revomnis Knowledge",
+        description:
+          "Outbound knowledge curated by Revomnis, with commentary on how we’d run it.",
+        url: `${SITE_URL}/knowledge`,
+        isPartOf: { "@type": "WebSite", name: "Revomnis", url: SITE_URL },
+      },
+    ],
+  },
 ];
 
 function buildHeadTags(route: RouteMeta): string {

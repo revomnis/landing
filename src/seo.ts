@@ -58,6 +58,24 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     canonical: `${SITE_URL}/privacy`,
     ogImage: OG_IMAGE,
   },
+  "/knowledge": {
+    title: "Knowledge — Outbound knowledge, curated by Revomnis",
+    description:
+      "Skip the rabbit hole. Best thinking on fit before volume, managed infrastructure, reply handling, and qualified meetings, with how we’d run it.",
+    canonical: `${SITE_URL}/knowledge`,
+    ogImage: OG_IMAGE,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Revomnis Knowledge",
+        description:
+          "Outbound knowledge curated by Revomnis, with commentary on how we’d run it.",
+        url: `${SITE_URL}/knowledge`,
+        isPartOf: { "@type": "WebSite", name: "Revomnis", url: SITE_URL },
+      },
+    ],
+  },
 };
 
 export function getSeo(path: string): RouteSeo {
