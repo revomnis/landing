@@ -203,6 +203,22 @@ async function run() {
     // Wait a moment for any useEffect-based head manipulation to settle
     await page.waitForSelector("main", { timeout: 10000 }).catch(() => {});
 
+    // Knowledge feed loads articles async — wait past the empty/loading shell
+    // so crawlers get real cards instead of "No published articles…".
+    if (route.path === "/knowledge") {
+      await page
+        .waitForFunction(
+          () =>
+            document.querySelectorAll(".knowledge-card").length > 0 ||
+            Boolean(
+              document.querySelector(".knowledge-feed__status--error")
+            ),
+          { timeout: 15000 }
+        )
+        .catch(() => {});
+      await page.waitForTimeout(300);
+    }
+
     // Capture rendered body content.
     // Strip the cookie consent banner: it's a client-only, effect-driven
     // element. If baked into the static HTML, hydration renders null for it

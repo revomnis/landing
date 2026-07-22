@@ -16,7 +16,7 @@
     },
     {
       "source": "/knowledge/:slug",
-      "destination": "/api/knowledge/:slug"
+      "destination": "/api/knowledge-article?slug=:slug"
     },
     {
       "source": "/(.*)",
