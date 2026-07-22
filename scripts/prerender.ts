@@ -216,7 +216,7 @@ async function run() {
           { timeout: 15000 }
         )
         .catch(() => {});
-      await page.waitForTimeout(300);
+      await new Promise((r) => setTimeout(r, 300));
     }
 
     // Capture rendered body content.
